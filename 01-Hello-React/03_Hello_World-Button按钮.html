@@ -26,12 +26,14 @@
     function btnClick() {
       message = "Hello React";
       console.log(message);
+      //  这里修改了message的数据，在react中必须重新渲染才能拿到，vue中不需要
       render();
     }
 
     // <h2></h2>: jsx代码
     function render() {
       ReactDOM.render(
+        // 只能有一个标签，所以用div包一下
         <div>
           <h2>{message}</h2>
           <button onClick={btnClick}>改变文本</button>

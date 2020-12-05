@@ -22,24 +22,36 @@
     // 封装App组件
     class App extends React.Component {
       constructor() {
+        //  构造方法中如果继承了类，必须调用supper，初始化父类的实例，
         super();
+        // message 这种类似的属性应该定义在构造函数中
         // this.message = "Hello World";
+        // jsx【render里面】依赖了一个数据希望数据发生改变的时候，希望界面跟随一起改变，数据不能定义在
+        // 当前对象里面，即this.message不行，需要定义到this.state，state是固定的不能起别的名字，是一个对象
+      
         this.state = {
           message: "Hello World"
         }
       }
-
+      
+      // render函数永远不要手动调用，永远是被react框架调用的，手动调用没有效果
       render() {
         return (
+          //  bind(this)可以给某个函数绑定this，就会传入this
+          // 虽然到时候内部调用的还是传入了undefined，即 btnClick.apply(undefined)，但是bind会生效
           <div>
             <h2>{this.state.message}</h2>
-            <button onClick={this.btnClick.bind(this)}>改变文本</button>
+            <button onClick={this.btnClick.bind(this)}>改变文本</button> 
           </div>
         )
       }
 
+      // 渲染组件
       btnClick() {
+        // this会报错undefined 为什么没？btnClick的调用是：
+        // btnClick.apply(undefined)，绑定了一个undefined，因为拿不到this，因为是在this内部调用的，所以会报错undefined
         // this.message = "Hello React";
+        // 不能写成这种，写成这种message数据改了，但是页面还是没有渲染成功新的，因为只是更新数据了，没有告诉react重新渲染
         // this.state.message = "Hello React";
         // console.log(this.state);
         this.setState({
