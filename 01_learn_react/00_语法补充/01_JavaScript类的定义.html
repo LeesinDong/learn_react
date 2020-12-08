@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    // es5中定义类 
+    // 和定义方法没有区别，只不过首字母大写，即使大写了，也可以当做普通的函数调用
+    function Person(name, age){
+        // 可以传递参数
+        this.name = name
+        this.age = age
+        
+        // 定义函数可以在里面定义，也可以定义在原型上
+    }
+
+    // 函数可以定义在原型上，一般是定义在原型上面的
+    Person.prototype.running = function(){
+        console.log(this.name, this.age, "running")
+    }
+
+    var p = new Person("why", 18)
+    console.log(p.name, p.age);
+    p.running();// 隐式绑定 把p隐式绑定到上面函数的this中
+
+
+    // =========================================
+    // react中建议使用es6中的类
+    // 搞一个和上面一模一样的类
+    class Person1{
+        // 构造方法，new的时候调用这个
+        // constructor名字是固定的
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }    
+
+        // 定义方法，没有es5原型的方式，在这里这样定义和es5原型的方式效果一样的
+        running(){
+
+            console.log(this.name, this.age, "running");
+        }
+    }
+    var p = new Person("why", 18);
+    console.log(p.name, p.age);
+    p.running();
+
+    //  this绑定题目
+    const foun = p.running;
+    // 能正常调用running方法，但是里面的this.name this undefined，即没有给this绑定任何东西
+    foun();
+
+    // 绑定this方法一
+    var obj = {
+        name: "kobe",
+        age: 40
+    }
+
+    // apply可以主动调用一个函数，或者call， call、apply区别，后面的参数不一样
+    // call可以主动给函数绑定this，即obj就是this
+    foun.call(obj)
+
+    // 绑定this方法二
+    // 换成let，let是可变的，const是常量，this绑定成obj
+    let foun1 = p.running;
+    foun1 = foun1.bind(obj)
+    foun1();
+
+    </script>
+</body>
+</html>

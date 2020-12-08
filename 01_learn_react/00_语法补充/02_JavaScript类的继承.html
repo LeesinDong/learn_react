@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 主要是es6 -->
+    <script>
+        class Person {
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+
+            running(){
+                console.log("running");
+            }
+
+        }
+
+        class Student extends Person {
+            constructor(name, age, sno){
+                super(name, age);
+                this.sno = sno;
+            }
+        }
+
+        const stu = new Student("why", 19, 12);
+        console.log(stu.name, stu.age, stu.sno);
+
+        // 一堆重复底代码
+        // class student {
+        //     constructor(name, age, sno){
+        //         this.name = name;
+        //         this.age = age;
+        //         this.sno = sno;
+        //     }
+        // }
+
+        // class teacher {
+        //     constructor(name, age, title){
+        //         this.name = name;
+        //         this.age = age;
+        //         this.title = title;
+        //     }
+        // }
+    </script>
+</body>
+</html>
