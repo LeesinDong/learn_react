@@ -28,10 +28,12 @@
 
       render() {
         const liArray = [];
+        // for(let index in this.state.movies)返回的是列表
         for (let movie of this.state.movies) {
           liArray.push(<li>{movie}</li>);
         }
 
+        // react中{}里面是一个表达式就可以
         return (
           <div>
             <h2>电影列表1</h2>

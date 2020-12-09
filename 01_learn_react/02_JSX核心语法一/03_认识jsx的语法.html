@@ -14,9 +14,29 @@
   <script src="../react/babel.min.js"></script>
 
   <script type="text/babel">
-    // jsx语法
+    // jsx语法，只有引入了babel才能用
     const element = <h2>Hello World</h2>;
     ReactDOM.render(element, document.getElementById("app"));
+
+    class A extends React.Component{
+      // jsx 语法，render里面return(jsx)，用小括号包裹，不包过也可以，但是要写在一行里面
+      render() {
+        return (
+          // return() 里面的东西就是jsx
+
+          // jsx语法：顶层只能有一个根元素 
+
+          // jsx语法：React.Component 注意：如果是单标签，必须以/>结尾；
+          // html中可以不写，这里不写会报错
+          <div>
+            <h2>当前计数: {this.state.counter}</h2>
+            <button onClick={this.increment}>+1</button>
+            <button onClick={this.decrement.bind(this)}>-1</button>
+            <img src="" alt=""/>
+          </div>
+        )
+      }
+    }
 
   </script>
 

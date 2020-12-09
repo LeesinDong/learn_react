@@ -53,7 +53,9 @@
           </div>
         )
       }
-
+      // react内部回调onclick指定的函数，默认会传入event对象
+      // 但是和js原生方式得到的event不是一个，js得到的是浏览器原生的事件对象，
+      // react得到的是react合成的事件对象
       btnClick(event) {
         console.log("按钮发生了点击", event);
       }

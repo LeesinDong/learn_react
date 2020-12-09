@@ -14,29 +14,41 @@
   <script src="../react/babel.min.js"></script>
 
   <script type="text/babel">
-    class App extends React.Component {
+    class App extends React.Component {      
       constructor(props) {
         super(props);
         this.state = {
           message: "你好啊",
           counter: 100
         }
-
+        
+        // 给原来的函数在构造方法中bind this，在真正用的时候就不需要了
         this.btnClick = this.btnClick.bind(this);
       }
 
       render() {
+        // 在render这里获取this是没有问题的
+        console.log(this.state.message);
         return (
           <div>
-            {/* 1.方案一: bind绑定this(显示绑定) */}
+            {/* 1.方案一: bind绑定this(显示绑定) ，*/}
+            <button onClick={this.btnClick.bind(this)}>按钮1</button>
+            {/*构造方法中绑定了this，真正用的时候就不需要了*/}
             <button onClick={this.btnClick}>按钮1</button>
             <button onClick={this.btnClick}>按钮2</button>
             <button onClick={this.btnClick}>按钮3</button>
 
-            {/* 2.方案二: 定义函数时, 使用箭头函数 */}
+            {/* 2.方案二: 定义函数时, 使用箭头函数 ，就不需要绑定this，不需要传入this，就能用this*/}
             <button onClick={this.increment}>+1</button>
 
-            {/* 2.方案三(推荐): 直接传入一个箭头函数, 在箭头函数中调用需要执行的函数*/}
+            {/* 2.方案三(推荐): 直接传入一个箭头函数, 在箭头函数中调用需要执行的函数，
+            箭头函数不需要传入this，永远不绑定一this，es出现的箭头函数*/}
+            {/*{表达式}里面是定义表达式的，这里直接定义一个函数*/}
+            {/*为什么这里面直接调用this.decrement，在this.decrement中不会undefined？
+            箭头函数中的this.decrement中的this，往外找，找到了render中，在render中是有this的
+            所以decrement的调用者是this，这里的this会隐式绑定到this.decrement 前面的this，
+            所以decrement里面可以使用this*/}
+            {/*推荐这种：1 函数还是原来写的方式 2 可以方便的传入参数*/}
             <button onClick={() => { this.decrement("why") }}>-1</button>
           </div>
         )
@@ -50,10 +62,15 @@
       //   console.log(this.state.counter);
       // }
       // 箭头函数中永远不绑定this
-      // ES6中给对象增加属性: class fields
+      // 这是ES6中给对象增加属性的方式: 叫做class fields，这里是给class fields赋值一个箭头函数
+      // js中函数作用域中找不到会一层一层网上找，在class中找到了，所以this能在父作用域this找到
       increment = () => {
         console.log(this.state.counter);
       }
+
+      // class fields：
+      // 在这定义name = "aa" 和在构造方法里面定义是一样的 
+      name = "aa"
 
       decrement(name) {
         console.log(this.state.counter, name);

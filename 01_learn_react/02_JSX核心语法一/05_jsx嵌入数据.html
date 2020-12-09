@@ -19,18 +19,22 @@
         super(props);
 
         this.state = {
-          // 1.在{}中可以正常显示显示的内容
+          // 1.在{}中可以正常显示显示的内容  {}指的是下面的jsx中的{}
           name: "why", // String
           age: 18, // Number
           names: ["abc", "cba", "nba"], // Array
 
-          // 2.在{}中不能显示(忽略)
+          // 2.在{}中不能显示(忽略)，即react最终页面上不显示
           test1: null, // null
           test2: undefined, // undefined
           test3: true, // Boolean
           flag: true,
+          // 如果希望显示的话
+          // 1 调用toString方法，比如{this.state.test3.toString()}，但是只有后boolean有toString
+          // 2 String(null), String(undefined) 可以转化成String
+          // 3 {this.state.test1 + ""}
 
-          // 3.对象不能作为jsx的子类
+          // 3.对象不能作为jsx的子类，不能在jsx中：{this.state.friend}
           friend: {
             name: "kobe",
             age: 40
@@ -50,7 +54,7 @@
             <h2>{this.state.test3.toString()}</h2>
 
             <h2>{this.state.flag ? "你好啊": null}</h2>
-
+            {/*不能这样，会报错*/}
             <h2>{this.state.friend}</h2>
           </div>
         )

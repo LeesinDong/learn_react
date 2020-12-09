@@ -22,6 +22,7 @@
 
         class Student extends Person {
             constructor(name, age, sno){
+                // 子类必须初始化父类对象，否则报错
                 super(name, age);
                 this.sno = sno;
             }

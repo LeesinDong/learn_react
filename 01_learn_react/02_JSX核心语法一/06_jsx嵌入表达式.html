@@ -26,6 +26,8 @@
       }
 
       render() {
+        // 对象的解构，es中的语法
+        // 解构this.state这个对象，拿到里面的firstname等属性
         const { firstname, lastname, isLogin } = this.state;
 
         return (
@@ -44,6 +46,8 @@
       }
 
       getFullName() {
+        // 这里的this是能用的，因为上面调用getFullName方法的时候就是this.getFullName()
+        // 所以这里可以直接用this
         return this.state.firstname + " " + this.state.lastname;
       }
     }

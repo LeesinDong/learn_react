@@ -35,6 +35,7 @@
       }
 
       increment() {
+        // 没有定义setState方法，setState在extends的父类Component中
         this.setState({
           counter: this.state.counter + 1
         })
