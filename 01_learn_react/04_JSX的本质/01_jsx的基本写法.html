@@ -13,8 +13,19 @@
   <script src="../react/react-dom.development.js"></script>
 
   <script>
+    // 什么是jsx代码？ 
+    // 1 render(return()) return里面的代码
+    // 2 ReactDom.reader(<App/> ,xxx)，中的App
+
     // jsx -> babel -> React.createElement()
+    // 这种写法必须加上babel相关的
     const message1 = <h2>Hello React</h2>;
+    // jsx的本质
+    // 第一个参数：标签的名字，第二个参数：属性，没有 就传null，
+    // 这个和上面是一样的，实际运行都是转化成了这个
+    // react通过babel帮助转化成这种形式
+    // 如果通过这种方式可以将<script type=‘text/babel’>中的‘text/babel’删掉，
+    // 也可以将   <script src="../react/babel.min.js"> 引用删掉，因为不再需要babel了
     const message2 = React.createElement("h2", null, "Hello React");
 
     ReactDOM.render(message1, document.getElementById("app"));

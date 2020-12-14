@@ -32,7 +32,7 @@
       render() {
         const { isLogin } = this.state;
 
-        // 1.方案一:通过if判断: 逻辑代码非常多的情况
+        // 1.方案一:通过if判断: 逻辑代码非常多的情况，即if里面会有很多逻辑 
         let welcome = null;
         let btnText = null;
         if (isLogin) {
@@ -49,14 +49,17 @@
 
             {welcome}
             {/* 2.方案二: 三元运算符 */}
+            {/*e => this.loginClick() 一般写法是e => {xxx} 只有一行代码的时候可以省略*/}
             <button onClick={e => this.loginClick()}>{isLogin ? "退出" : "登录"}</button>
-
+            
+            {/*分割线*/}
             <hr />
 
             <h2>{isLogin ? "你好啊, coderwhy": null}</h2>
 
             {/* 3.方案三: 逻辑与&& */}
             {/* 逻辑与: 一个条件不成立, 后面的条件都不会进行判断了 */}
+            {/* 前面的条件为真的时候，后面字符串有内容的时候为真，为真的时候，将字符串的内容当做表达是的结果返回*/}
             <h2>{ isLogin && "你好啊, coderwhy" }</h2>
             { isLogin && <h2>你好啊, coderwhy</h2> }
           </div>

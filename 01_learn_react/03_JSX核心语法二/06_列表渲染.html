@@ -32,17 +32,27 @@
             <h2>名字列表</h2>
             <ul>
               {
+                //  map((item, inde, list) => {})
+                // 后两个参数是可选的参数，如果用不到的话可以省略
+                // 只有一个参数的时候小括号可以省略map(item => {})
                 this.state.names.map(item => {
                   return <li>{item}</li>
                 })
               }
             </ul>
 
+            {/*找到列表中所有大于等于50的数字*/}
             <h2>数字列表(过滤1)</h2>
             <ul>
               {
+                // filter(item, index, arr) 分别是每一项，每一项索引，数组本身
+                // 和map的区别，返回的是一个boolean
+                // contest 数组 = nums.filter(xxx => {return })，如果filter里面返回的是true，
+                // 就会将当前的item放入到生成的新的数组中，false不会放进去
+
+                // filter返回一个新的数组，再对新数组map
                 this.state.numbers.filter(item => {
-                  return item >= 50;
+                  return item >= 50; //return一个boolean
                 }).map(item => {
                   return <li>{item}</li>
                 })
@@ -52,6 +62,9 @@
             <h2>数字列表(过滤2)</h2>
             <ul>
               {
+                // 和上面的例子一样，只不过，去掉了filter{} 如果只有一句话可以去掉{}，
+                // 去掉{} 如果是return xxx，可以直接写成 xxx，箭头函数的函数体，默认会返回xxx
+                // item => item >= 50 等效于上面的
                 this.state.numbers.filter(item => item >= 50).map(item => <li>{item}</li>)
               }
             </ul>
@@ -59,6 +72,7 @@
             <h2>数字列表(截取)</h2>
             <ul>
               {
+                // 前闭后开
                 this.state.numbers.slice(0, 4).map(item => {
                   return <li>{item}</li>
                 })

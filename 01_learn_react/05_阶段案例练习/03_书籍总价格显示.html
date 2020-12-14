@@ -125,7 +125,9 @@
 
         // 2.filter/map/reduce(归纳为)
         // 回调函数的参数:
-        // 参数一: 上一次回调函数的结果(第一次没有上一次函数的回调函数的结果, 使用初始化值)
+        // 参数一: 上一次回调函数的结果(第一次没有上一次函数的回调函数的结果, 使用初始化值)，初始化值，即本例子中的0
+        // 后面的参数和map一样，item，index， list  。index list可省略
+        // 第一次：prevalue=0，0+item.count * item.price;
         const totalPrice = this.state.books.reduce((preValue, item) => {
           return preValue + item.count * item.price;
         }, 0);

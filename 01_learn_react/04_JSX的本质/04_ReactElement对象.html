@@ -25,9 +25,13 @@
         }
       }
 
+      // React.creatElement最终创建出来的ReactElement对象，
+      // react利用这个对象组成了一个javaScript对象树，这个javascript对象树就是虚拟DOM（virtual DOM）
+      // 即通过JavaScript对象（ReactElement）表示 真实的DOM（body，header 一层一层的树结构）
+
       render() {
-        // jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 真实DOM
-        // jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 原生的控件(UIButton/Button)
+        // react：jsx ->本质就是 -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 真实DOM
+        // react native：jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 原生的控件(UIButton/Button)
         var elementObj = (
           <div>
             <div className="header">
@@ -44,11 +48,26 @@
             </div>
           </div>
         )
+        // elementObj = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+        //   className: "header"
+        // }, /*#__PURE__*/React.createElement("h1", {
+        //   title: "\u6807\u9898"
+        // }, "\u6211\u662F\u6807\u9898")), /*#__PURE__*/React.createElement("div", {
+        //   className: "content"
+        // }, /*#__PURE__*/React.createElement("h2", null, "\u6211\u662F\u9875\u9762\u7684\u5185\u5BB9"), /*#__PURE__*/React.createElement("button", null, "\u6309\u94AE"), /*#__PURE__*/React.createElement("button", null, "+1"), /*#__PURE__*/React.createElement("a", {
+        //   href: "http://www.baidu.com"
+        // }, "\u767E\u5EA6\u4E00\u4E0B")), /*#__PURE__*/React.createElement("div", {
+        //   className: "footer"
+        // }, /*#__PURE__*/React.createElement("p", null, "\u6211\u662F\u5C3E\u90E8\u7684\u5185\u5BB9")));
+
+        // 两个效果一样的，都是同一个ReactElemt 对应的dom对象
+        
         console.log(elementObj);
         return elementObj;
       }
     }
 
+    // render函数就是把<App/>这个虚拟DOM 映射到了 app 里面
     ReactDOM.render(<App />, document.getElementById("app"));
   </script>
 
