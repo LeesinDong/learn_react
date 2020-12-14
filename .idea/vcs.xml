@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/02_learn_scaffold" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/03_hello_react" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_learn_component" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/05_react_style" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/06_learn_antdesign" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/07_learn_axios" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/08_learn_transition" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/10_react-redux" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/12_redux-reducer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/13_learn-router" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/14_learn-hooks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/16_learn-next" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hy-music-web-music" vcs="Git" />
+  </component>
+</project>
