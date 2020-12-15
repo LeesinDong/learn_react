@@ -124,8 +124,12 @@
       }
 
       removeBook(index) {
-        // React中设计原则: state中的数据的不可变性;
+        // 不能直接通过修改，要修改state这种方式
+        // this.state.books.splice();
+
+        // React中设计原则: state中的数据的不可变性，即永远不要修改state中的数据，如果想要修改一定要通过setState
         this.setState({
+          // 最后只显示没有移除的，过滤掉移除掉的index
           books: this.state.books.filter((item, indey) => index != indey)
         })
       }
