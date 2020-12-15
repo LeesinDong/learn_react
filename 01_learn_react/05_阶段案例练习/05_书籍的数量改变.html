@@ -99,6 +99,7 @@
                         <td>{item.date}</td>
                         <td>{formatPrice(item.price)}</td>
                         <td>
+                          {/* TODO: 数量变成1的时候就不能交互了，即不能点了，disabled = true  */}
                           <button disabled={item.count <= 1} onClick={e => this.changeBookCount(index, -1)}>-</button>
                           <span className="count">{item.count}</span>
                           <button onClick={e => this.changeBookCount(index, 1)}>+</button>
@@ -125,6 +126,8 @@
       }
 
       changeBookCount(index, count) {
+        // TODO: 总而言之，还是对books设置了新的值，但是不是通过splice等方式，而是通过set的方式，set的value可以通过 1拷贝 2filter等函数实现
+        // TODO: 通过修改拷贝，而不是直接修改state
         const newBooks = [...this.state.books];
         newBooks[index].count += count;
         this.setState({
@@ -134,6 +137,7 @@
 
       removeBook(index) {
         // React中设计原则: state中的数据的不可变性;
+        // TODO: 通过filter函数，而不是直接修改state
         this.setState({
           books: this.state.books.filter((item, indey) => index != indey)
         })
