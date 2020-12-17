@@ -39,15 +39,15 @@
         const { title, imgUrl, link, active } = this.state;
         return (
           <div>
-            {/* 1.绑定普通属性 */}
-            {/*titile属性：鼠标放上去的提示*/}
+            {/* TODO: 1.绑定普通属性 */}
+            {/* titile属性：鼠标放上去的提示*/}
             <h2 title={title}>我是标题</h2>
             {/*图片没有正常显示的时候，显示的文本*/}
             {/*可以直接写变量，也可以写一个函数*/}
             <img src={getSizeImage(imgUrl, 140)} alt=""/>
             <a href={link} target="_blank">百度一下</a>
 
-            {/* 2.绑定class */}
+            {/* TODO: .绑定class */}
             {/*如果写成class="" 也行，但是console会报警告，因为jsx是js和html混合，class是js中的关键字
             会导致混淆，所以写成className*/}
             <div className="box title">我是div元素</div>
@@ -56,7 +56,7 @@
             {/*lable 中的for是用来做循环的，这里用htmlfor*/}
             <label htmlFor=""></label>
 
-            {/* 3.绑定style */}
+            {/* TODO: .绑定style */}
             {/*外部{}表示 往里面写js代码，内部的{}在js中表示对象，所以里面就是key:value
             如果是红色，"red"表示传入字符串，不加引号，red表示变量，通过red去上面找标量值
             

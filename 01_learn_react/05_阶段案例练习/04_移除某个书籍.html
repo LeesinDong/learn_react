@@ -136,14 +136,14 @@
       }
 
       getTotalPrice() {
-        // 1.for循环的方式
+        // TODO: 1.for循环的方式
         // let totalPrice = 0;
         // for (let item of this.state.books) {
         //   totalPrice += item.price * item.count;
         // }
         // return formatPrice(totalPrice);
 
-        // 2.filter/map/reduce(归纳为)
+        // TODO: .filter/map/reduce(归纳为)
         // 回调函数的参数:
         // 参数一: 上一次回调函数的结果(第一次没有上一次函数的回调函数的结果, 使用初始化值)
         const totalPrice = this.state.books.reduce((preValue, item) => {

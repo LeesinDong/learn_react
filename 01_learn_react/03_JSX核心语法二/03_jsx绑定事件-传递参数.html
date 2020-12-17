@@ -39,15 +39,15 @@
             
             <ul>
               {
-                // map第一个参数：回调函数，第二个参数：绑定this【第二个参数很少用】
+                //TODO:  map第一个参数：回调函数，第二个参数：绑定this【第二个参数很少用】
                 this.state.movies.map((item, index, arr) => {
                   return (
                     <li className="item" 
-                        // 原来这么写
+                        // TODO: 原来这么写
                         // () => { this.liClick(item, index) }
                         // 默认会传入e，所以可以这么写
                         // (e) => { this.liClick(item, index, e) }
-                        // 可以直接这么写【推荐】
+                        // 可以直接这么写 （一个参数的时候可以去掉()？） TODO: 【推荐】
                         // e => { this.liClick(item, index, e) }
 
                         // onClick.call(undefined, event) 然后传到这里的e => { this.liClick(item, index, e) } 前面的e
@@ -63,7 +63,7 @@
           </div>
         )
       }
-      // react内部回调onclick指定的函数，默认会传入event对象，onClick.call(undefined,event)
+      // TODO: react内部回调onclick指定的函数，默认会传入event对象，onClick.call(undefined,event)
       // 但是和js原生方式得到的event不是一个，js得到的是浏览器原生的事件对象，
       // react得到的是react合成的事件对象
       btnClick(event) {

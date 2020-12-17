@@ -32,7 +32,7 @@
             <h2>名字列表</h2>
             <ul>
               {
-                //  map((item, inde, list) => {})
+                //  TODO: map((item, inde, list) => {})
                 // 后两个参数是可选的参数，如果用不到的话可以省略
                 // 只有一个参数的时候小括号可以省略map(item => {})
                 this.state.names.map(item => {
@@ -45,7 +45,7 @@
             <h2>数字列表(过滤1)</h2>
             <ul>
               {
-                // filter(item, index, arr) 分别是每一项，每一项索引，数组本身
+                // TODO: filter(item, index, arr) 分别是每一项，每一项索引，数组本身
                 // 和map的区别，返回的是一个boolean
                 // contest 数组 = nums.filter(xxx => {return })，如果filter里面返回的是true，
                 // 就会将当前的item放入到生成的新的数组中，false不会放进去
@@ -72,7 +72,7 @@
             <h2>数字列表(截取)</h2>
             <ul>
               {
-                // 前闭后开
+                // TODO: slice 前闭后开
                 this.state.numbers.slice(0, 4).map(item => {
                   return <li>{item}</li>
                 })

@@ -137,7 +137,7 @@
 
       removeBook(index) {
         // React中设计原则: state中的数据的不可变性;
-        // TODO: 通过filter函数，而不是直接修改state
+        // TODO: 通过filter函数进行setState，而不是直接修改state
         this.setState({
           books: this.state.books.filter((item, indey) => index != indey)
         })

@@ -25,13 +25,13 @@
         }
       }
 
-      // v-show效果，就是通过dispaly实现，不会真正的去删了这个标签
+      // TODO: v-show效果，就是通过dispaly实现，不会真正的去删了这个标签
       // v-if是直接删了标签，然后再重新加一个标签
       // 这里通过 style = dispaly 来实现v-show的效果
 
       render() {
         const { isLogin} = this.state;
-        // 为什么是const？因为每次执行loginClick中的setState的时候会重新执行render函数
+        // TODO: 为什么是const？因为每次执行loginClick中的setState的时候会重新执行render函数
         // 从而每次都会生成一个新的常量
         const titleDisplayValue = isLogin ? "block": "none";
         return (

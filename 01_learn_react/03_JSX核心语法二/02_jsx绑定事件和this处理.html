@@ -49,7 +49,7 @@
             箭头函数中的this.decrement中的this，往外找，找到了render中，在render中是有this的
             所以decrement的调用者是this，这里的this会隐式绑定到this.decrement 前面的this，
             所以decrement里面可以使用this*/}
-            {/*推荐这种：1 函数还是原来写的方式 2 可以方便的传入参数*/}
+            {/*推荐这种：1 函数还是原来写的方式，不需要改成箭头格式方便 2 可以方便的传入参数*/}
             <button onClick={() => { this.decrement("why") }}>-1</button>
           </div>
         )
@@ -64,7 +64,7 @@
       // }
       // 箭头函数中永远不绑定this
       // 这是ES6中给对象增加属性的方式: 叫做class fields，这里是给class fields赋值一个箭头函数
-      // js中函数作用域中找不到会一层一层网上找，在class中找到了，所以this能在父作用域this找到
+      // js中函数作用域中找不到会一层一层往上找，在class中找到了，所以this能在父作用域this找到
       increment = () => {
         console.log(this.state.counter);
       }
