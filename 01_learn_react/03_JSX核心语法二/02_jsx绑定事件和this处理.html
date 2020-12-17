@@ -31,17 +31,18 @@
         console.log(this.state.message);
         return (
           <div>
-            {/* 1.方案一: bind绑定this(显示绑定) ，*/}
+            {/*TODO:  <h2>{this.getFullName()}</h2> 06_jsx嵌入表达式.html 这种可以直接用this，因为调用getFullName的时候就是this所以可以在方法里直接用this，这里没有onclick*/}
+            {/* TODO: 1.方案一: bind绑定this(显示绑定) ，*/}
             <button onClick={this.btnClick.bind(this)}>按钮1</button>
             {/*构造方法中绑定了this，真正用的时候就不需要了*/}
             <button onClick={this.btnClick}>按钮1</button>
             <button onClick={this.btnClick}>按钮2</button>
             <button onClick={this.btnClick}>按钮3</button>
 
-            {/* 2.方案二: 定义函数时, 使用箭头函数 ，就不需要绑定this，不需要传入this，就能用this*/}
+            {/* TODO: 2.方案二: 定义函数时, 使用箭头函数 ，就不需要绑定this，不需要传入this，就能用this*/}
             <button onClick={this.increment}>+1</button>
 
-            {/* 2.方案三(推荐): 直接传入一个箭头函数, 在箭头函数中调用需要执行的函数，
+            {/* TODO: 2.方案三(推荐): 直接传入一个箭头函数, 在箭头函数中调用需要执行的函数，
             箭头函数不需要传入this，永远不绑定一this，es出现的箭头函数*/}
             {/*{表达式}里面是定义表达式的，这里直接定义一个函数*/}
             {/*为什么这里面直接调用this.decrement，在this.decrement中不会undefined？

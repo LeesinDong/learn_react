@@ -26,27 +26,27 @@
       }
 
       render() {
-        // 对象的解构，es中的语法
+        // TODO: 对象的解构，es中的语法
         // 解构this.state这个对象，拿到里面的firstname等属性
         const { firstname, lastname, isLogin } = this.state;
 
         return (
           <div>
-            {/*1.运算符表达式*/}
+            {/*TODO: .运算符表达式*/}
             <h2>{ firstname + " " + lastname }</h2>
             <h2>{20 * 50}</h2>
 
-            {/*2.三元表达式*/}
+            {/*TODO: 2.三元表达式*/}
             <h2>{ isLogin ? "欢迎回来~": "请先登录~" }</h2>
 
-            {/*3.进行函数调用*/}
+            {/*TODO: 3.进行函数调用*/}
             <h2>{this.getFullName()}</h2>
           </div>
         )
       }
 
       getFullName() {
-        // 这里的this是能用的，因为上面调用getFullName方法的时候就是this.getFullName()
+        // TODO: 这里的this是能用的，因为上面调用getFullName方法的时候就是this.getFullName()
         // 所以这里可以直接用this
         return this.state.firstname + " " + this.state.lastname;
       }
